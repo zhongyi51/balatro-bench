@@ -1,1 +1,1 @@
-export {default as _} from 'https://cdn.skypack.dev/lodash';
+export { default as _ } from "https://cdn.skypack.dev/lodash?dts";
