@@ -1,0 +1,33 @@
+{
+  "version": "3",
+  "packages": {
+    "specifiers": {
+      "npm:lodash-es": "npm:lodash-es@4.17.21"
+    },
+    "npm": {
+      "lodash-es@4.17.21": {
+        "integrity": "sha512-mKnC+QJ9pWVzv+C4/U3rRsHapFfHvQFoFB92e52xeyGMcX6/OlIl78je1u8vePzYZSkkogMPJ2yjxxsb89cxyw==",
+        "dependencies": {}
+      }
+    }
+  },
+  "redirects": {
+    "https://esm.sh/@types/lodash": "https://esm.sh/@types/lodash@4.17.5",
+    "https://esm.sh/@types/lodash@4.14.182": "https://esm.sh/v135/@types/lodash@4.14.182/index.d.ts",
+    "https://esm.sh/@types/lodash@4.17.21": "https://esm.sh/v135/@types/lodash@4.17.21/index.d.ts",
+    "https://esm.sh/@types/lodash@4.17.5": "https://esm.sh/v135/@types/lodash@4.17.5/index.d.ts",
+    "https://esm.sh/lodash": "https://esm.sh/lodash@4.17.21",
+    "https://esm.sh/lodash?dts": "https://esm.sh/lodash@4.17.21?dts",
+    "https://esm.sh/v135/@types/lodash@4.14.182/index": "https://esm.sh/v135/@types/lodash@4.14.182/index~.d.ts",
+    "https://esm.sh/v135/@types/lodash@4.17.5": "https://esm.sh/v135/@types/lodash@4.17.5/index.d.ts",
+    "https://esm.sh/v135/@types/lodash@4.17.5/index": "https://esm.sh/v135/@types/lodash@4.17.5/index~.d.ts",
+    "https://esm.sh/v135/@types/lodash@~4.17/index.d.ts": "https://esm.sh/v135/@types/lodash@4.17.5/index.d.ts"
+  },
+  "remote": {
+    "https://cdn.skypack.dev/-/lodash@v4.17.21-K6GEbP02mWFnLA45zAmi/dist=es2019,mode=imports/optimized/lodash.js": "10c4df47937ffc78548d136dd535a021df5f57182a653260d715c0690dd22978",
+    "https://cdn.skypack.dev/lodash": "8280de0b3efd87f06ea0eb330d15b8de32c059556023b8c6524e9eb9e4844dc0",
+    "https://esm.sh/lodash@4.17.21": "cf3544d5159a7648b25ad21fcf8dbf08a1fbfb1415b70b4163da646ef83eec4a",
+    "https://esm.sh/lodash@4.17.21?dts": "cf3544d5159a7648b25ad21fcf8dbf08a1fbfb1415b70b4163da646ef83eec4a",
+    "https://esm.sh/v135/lodash@4.17.21/denonext/lodash.mjs": "f04a5db09228738fd8cd06b6d1eaf3463b1b639d1529cf11673c3ac7bda1b1a8"
+  }
+}
