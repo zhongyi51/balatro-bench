@@ -13,8 +13,8 @@ export async function doLlmReq(history: Chat[], model: string): Promise<Chat> {
   const bodyStr = JSON.stringify({
     "model": model,
     "messages": history,
+    "temperature":0
   });
-  console.log(bodyStr);
   const res = await fetch("https://openrouter.ai/api/v1/chat/completions", {
     method: "POST",
     headers: {
@@ -25,7 +25,6 @@ export async function doLlmReq(history: Chat[], model: string): Promise<Chat> {
     body: bodyStr,
   });
   const json = await res.json();
-  console.log(json);
   return json["choices"][0]["message"];
 }
 

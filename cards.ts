@@ -1,5 +1,18 @@
-import { _ } from "./deps.ts";
+import { _,seedrandom } from "./deps.ts";
 export type Suit = "Hearts" | "Diamonds" | "Clubs" | "Spades";
+
+
+export function seedShuffle<T>(array:readonly T[],seed:string):T[] {
+    const rng = seedrandom(seed);
+    const result = array.slice();
+
+    for (let i = result.length - 1; i > 0; i--) {
+        const j = Math.floor(rng() * (i + 1));
+        [result[i], result[j]] = [result[j], result[i]];
+    }
+
+    return result;
+}
 
 export type Rank =
   | "2"
@@ -42,17 +55,20 @@ export class PlayingDeck {
   drawPile: Card[] = [];
   discardPile: Card[] = [];
 
-  constructor() {
+  seed:string;
+
+  constructor(seed:string) {
     PlayingDeck.suits.forEach((suit) => {
       PlayingDeck.ranks.forEach((rank) => {
         this.drawPile.push({ suit, rank });
       });
     });
-    this.drawPile = _.shuffle(this.drawPile);
+    this.seed=seed;
+    this.drawPile = seedShuffle(this.drawPile,this.seed);
   }
 
   reShuffle(): void {
-    this.drawPile = _.shuffle(this.discardPile);
+    this.drawPile = seedShuffle(this.discardPile,this.seed);
     this.discardPile = [];
   }
 

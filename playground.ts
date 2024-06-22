@@ -13,7 +13,7 @@ export function formatCards(cards: readonly Card[]): string {
 }
 
 export class Playground {
-  deck: PlayingDeck = new PlayingDeck();
+  deck: PlayingDeck;
 
   score: number = 0;
 
@@ -29,8 +29,9 @@ export class Playground {
 
   debugHistory: string[] = [];
 
-  constructor(playingAgent: PlayingAgent) {
+  constructor(playingAgent: PlayingAgent,seed:string) {
     this.playingAgent = playingAgent;
+    this.deck=new PlayingDeck(seed);
     this.playingAgent.init(this.handCount, this.discardCount, this.deck);
     this.hands = this.deck.drawN(8);
   }
@@ -77,7 +78,7 @@ export class Playground {
     }
 
     this.deck.discard(action.card);
-    this.hands = _.filter(this.hands, (hand) => !_.includes(action.card, hand));
+    this.hands = _.filter(this.hands, (hand) => !includeAll(action.card, [hand]));
     this.hands.push(...this.deck.drawN(action.card.length));
 
     if (this.handCount === 0) {

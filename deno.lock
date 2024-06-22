@@ -2,6 +2,8 @@
   "version": "3",
   "remote": {
     "https://cdn.skypack.dev/-/lodash@v4.17.21-K6GEbP02mWFnLA45zAmi/dist=es2019,mode=imports/optimized/lodash.js": "10c4df47937ffc78548d136dd535a021df5f57182a653260d715c0690dd22978",
-    "https://cdn.skypack.dev/lodash?dts": "8280de0b3efd87f06ea0eb330d15b8de32c059556023b8c6524e9eb9e4844dc0"
+    "https://cdn.skypack.dev/-/seedrandom@v3.0.5-893MnPdhjZohiVrYd6CW/dist=es2019,mode=imports/optimized/seedrandom.js": "d8bd864e72b1f2b2d698c0279bf305086c9149deb1dfd101bab4b7471d8b65a2",
+    "https://cdn.skypack.dev/lodash?dts": "8280de0b3efd87f06ea0eb330d15b8de32c059556023b8c6524e9eb9e4844dc0",
+    "https://cdn.skypack.dev/seedrandom?dts": "f8b7a6f309b711c6909d4f603d097e155f36f301fd766a8622afbeca740f98a2"
   }
 }

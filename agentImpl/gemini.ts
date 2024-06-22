@@ -2,8 +2,8 @@
 import { _ } from "../deps.ts";
 import { CommonOpenRouterAgent } from "./common.ts";
 
-export class Gpt4Agent extends CommonOpenRouterAgent{
+export class GeminiAgent extends CommonOpenRouterAgent{
     constructor(){
-        super("openai/gpt-4o");
+        super("google/gemini-pro-1.5");
     }
 }
