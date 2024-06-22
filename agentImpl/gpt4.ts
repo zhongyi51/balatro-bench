@@ -7,3 +7,9 @@ export class Gpt4Agent extends CommonOpenRouterAgent{
         super("openai/gpt-4o");
     }
 }
+
+export class Gpt4TurboAgent extends CommonOpenRouterAgent{
+    constructor(){
+        super("openai/gpt-4-turbo");
+    }
+}

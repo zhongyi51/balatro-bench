@@ -5,8 +5,8 @@ import { Playground,} from "./playground.ts";
 import {_} from "./deps.ts";
 import { Qwen2Agent } from "./agentImpl/qwen2.ts";
 import { GeminiAgent } from "./agentImpl/gemini.ts";
-import { Claude3Agent } from "./agentImpl/claude3.ts";
-import { Gpt4Agent } from "./agentImpl/gpt4.ts";
+import { Claud3OpusAgent, Claude3Agent } from "./agentImpl/claude3.ts";
+import { Gpt4Agent, Gpt4TurboAgent } from "./agentImpl/gpt4.ts";
 
 
 
@@ -34,6 +34,12 @@ const randomSeedArr=["白", "日", "依", "山", "尽", "黄", "河", "入", "�
 
 const resOfBaseline=await runNTimes(()=>new BaselineAgent(),randomSeedArr);
 console.log("avg score for baseline: ",_.mean(resOfBaseline.filter(x=>_.isNumber(x))),resOfBaseline);
+
+const resOfGpt4Turbo=await runNTimes(()=>new Gpt4TurboAgent(),randomSeedArr);
+console.log("avg score for gpt4Turbo: ",_.mean(resOfGpt4Turbo.filter(x=>_.isNumber(x))),resOfGpt4Turbo);
+
+const resOfOpusTurbo=await runNTimes(()=>new Claud3OpusAgent(),randomSeedArr);
+console.log("avg score for claude3 opus: ",_.mean(resOfOpusTurbo.filter(x=>_.isNumber(x))),resOfOpusTurbo);
 
 const resOfGemini=await runNTimes(()=>new GeminiAgent(),randomSeedArr);
 console.log("avg score for gemini: ",_.mean(resOfGemini.filter(x=>_.isNumber(x))),resOfGemini);
