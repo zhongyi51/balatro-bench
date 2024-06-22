@@ -1,13 +1,12 @@
 import { BaselineAgent } from "./agentImpl/baseline.ts";
-import { doLlmReq } from "./agentImpl/util.ts";
-import { Playground } from "./playground.ts";
+import { Gpt4Agent } from "./agentImpl/gpt4.ts";
+import { Playground, includeAll } from "./playground.ts";
 
-export function add(a: number, b: number): number {
-  return a + b;
-}
 
-const playground = new Playground(new BaselineAgent());
+
+const playground = new Playground(new Gpt4Agent());
 await playground.playUntilOver();
 
-const res=await doLlmReq([{role:"system",content:"Just say hello."}],"openai/gpt-3.5-turbo");
-console.log(res);
+
+const playground2 = new Playground(new BaselineAgent());
+await playground2.playUntilOver();

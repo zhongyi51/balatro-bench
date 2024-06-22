@@ -4,12 +4,12 @@ import { calPlayScore } from "./rules.ts";
 
 import { _ } from "./deps.ts";
 
-function includeAll<T>(array1: T[], array2: T[]) {
-  return _.every(array2, (element) => _.includes(array1, element));
+export function includeAll<T>(array1: T[], array2: T[]) {
+  return _.every(array2, (element) => _.some(array1, (e) => _.isEqual(e, element)));
 }
 
-function formatCards(cards:Card[]):string{
-    return _.join(_.map(cards,card=>`${card.suit}-${card.rank}`)," ");
+export function formatCards(cards: readonly Card[]): string {
+  return _.join(_.map(cards, (card) => `${card.suit}-${card.rank}`), " ");
 }
 
 export class Playground {
@@ -32,7 +32,7 @@ export class Playground {
   constructor(playingAgent: PlayingAgent) {
     this.playingAgent = playingAgent;
     this.playingAgent.init(this.handCount, this.discardCount, this.deck);
-    this.hands=this.deck.drawN(8);
+    this.hands = this.deck.drawN(8);
   }
 
   async oneTurn() {
@@ -40,7 +40,9 @@ export class Playground {
       return;
     }
 
-    this.debugHistory.push(`New turn start. Current hands: ${formatCards(this.hands)}`);
+    this.debugHistory.push(
+      `New turn start. Current hands: ${formatCards(this.hands)}`,
+    );
 
     const action = await this.playingAgent.doAction(
       this.hands,
@@ -52,7 +54,9 @@ export class Playground {
 
     if (!includeAll(this.hands, action.card)) {
       this.debugHistory.push(
-        `Inexist card shows in action ${action.type}: ${formatCards(action.card)} <--> ${formatCards(this.hands)}`,
+        `Inexist card shows in action ${action.type}: ${
+          formatCards(action.card)
+        } <--> ${formatCards(this.hands)}`,
       );
       this.isOver = true;
       return;
@@ -63,7 +67,9 @@ export class Playground {
       this.score += curScore;
       this.handCount -= 1;
       this.debugHistory.push(
-        `Playing card type ${typeInfo.typeName}:${formatCards(scoredCards)} add score ${curScore}`,
+        `Playing card type ${typeInfo.typeName}:${
+          formatCards(scoredCards)
+        } add score ${curScore}`,
       );
     } else if (action.type === "Discard") {
       this.debugHistory.push(`Discard ${formatCards(action.card)}`);
@@ -82,7 +88,7 @@ export class Playground {
     }
   }
 
-  async playUntilOver():Promise<number> {
+  async playUntilOver(): Promise<number> {
     while (!this.isOver) {
       await this.oneTurn();
     }

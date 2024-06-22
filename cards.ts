@@ -87,6 +87,26 @@ export class PlayingDeck {
     return r;
   }
 
+  countBySuitPretty(): string {
+    const r = this.countBySuit();
+    const sorted = _.sortBy(Object.entries(r), ([k, v]) => k);
+    const infoStr = _.join(
+      _.map(sorted, ([k, v]) => `Suit ${k} - ${v} cards;`),
+      " ",
+    );
+    return infoStr;
+  }
+
+  countByRankPretty(): string {
+    const r = this.countByRank();
+    const sorted = _.sortBy(Object.entries(r), ([k, v]) => k);
+    const infoStr = _.join(
+      _.map(sorted, ([k, v]) => `Rank ${k} - ${v} cards;`),
+      " ",
+    );
+    return infoStr;
+  }
+
   countByRank(): Partial<Record<Rank, number>> {
     const r = {} as Partial<Record<Rank, number>>;
     this.drawPile.forEach((card) => {
