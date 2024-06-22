@@ -21,12 +21,7 @@ export type Card = {
   rank: Rank;
 };
 
-export interface Deck {
-  countBySuit(): Partial<Record<Suit, number>>;
-  countByRank(): Partial<Record<Rank, number>>;
-}
-
-export class PlayingDeck implements Deck {
+export class PlayingDeck {
   static suits: Suit[] = ["Hearts", "Diamonds", "Clubs", "Spades"];
   static ranks: Rank[] = [
     "2",
