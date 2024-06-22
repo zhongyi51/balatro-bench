@@ -35,14 +35,14 @@ export class Playground {
     this.hands=this.deck.drawN(8);
   }
 
-  oneTurn() {
+  async oneTurn() {
     if (this.isOver) {
       return;
     }
 
     this.debugHistory.push(`New turn start. Current hands: ${formatCards(this.hands)}`);
 
-    const action = this.playingAgent.doAction(
+    const action = await this.playingAgent.doAction(
       this.hands,
       this.score,
       this.handCount,
@@ -82,12 +82,13 @@ export class Playground {
     }
   }
 
-  playUntilOver() {
+  async playUntilOver():Promise<number> {
     while (!this.isOver) {
-      this.oneTurn();
+      await this.oneTurn();
     }
     for (const his of this.debugHistory) {
       console.log(his);
     }
+    return this.score;
   }
 }

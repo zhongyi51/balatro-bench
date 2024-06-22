@@ -10,5 +10,5 @@ export interface PlayingAgent {
     remainHandCount: number,
     remainDiscardCount: number,
     deck: PlayingDeck,
-  ): Action;
+  ): Promise<Action>;
 }
