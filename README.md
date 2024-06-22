@@ -22,7 +22,9 @@ Now, there is a game that relies on a deck of cards without jokers. The rules ar
    - The multipliers for different hand types are: Straight Flush - 8x, Four of a Kind - 7x, Full House/Flush/Straight - 4x, Three of a Kind - 3x, One Pair/Two Pair - 2x, High Card - 1x.
 
 3. When you perform an action, first analyze your hand and the remaining cards step by step, and then make your move. The last line of your output should be the action you decide to perform. First, indicate your action in square brackets as either Play or Discard, followed by a colon and the cards you are playing or discarding, separated by spaces. The format for each card is suit-dash-rank. Do not use any markdown for the last line. Here are two examples:
+
 [Play]: Spades-3 Diamonds-2 Diamonds-10 Spades-J Hearts-A
+
 [Discard]: Diamonds-J Hearts-2
 
 4. The game ends when your play chances reach 0. Ensure that your actions are **legal**. If the last line of your output does not follow the format, or if you use non-existent cards, the game will end immediately. Strive to achieve the highest card type for each play.
@@ -95,7 +97,9 @@ To support additional models or agentic systems, implement the `PlayingAgent` in
    - 不同牌型的倍数为：同花顺 - 8倍，四条 - 7倍，葫芦/同花/顺子 - 4倍，三条 - 3倍，一对/两对 - 2倍，高牌 - 1倍。
 
 3. 执行操作时，先一步一步地分析你的手牌和牌堆中剩余的牌，然后再行动。你输出的最后一行应该是你决定执行的操作。首先用方括号标识的操作为Play或Discard，然后是冒号，紧接着你要打出或弃掉的牌，用空格分隔。每张牌的格式为花色-点数。以下是两个例子：
+
 [Play]: Spades-3 Diamonds-2 Diamonds-10 Spades-J Hearts-A
+
 [Discard]: Diamonds-J Hearts-2
 
 4. 当你的出牌机会为0时，游戏结束。确保你的操作是**合法**的。如果输出的最后一行不符合格式，或者你使用了不存在的牌，游戏会立即结束。尽力在每次出牌中都打出尽可能高的牌型。
