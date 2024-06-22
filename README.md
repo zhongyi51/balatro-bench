@@ -1,4 +1,4 @@
-# Balatro-Bench
+# Balatro-Bench (中文版在下面)
 
 ### Introduction
 This benchmark is inspired by the video game *Balatro* ([website](https://www.playbalatro.com/)), a playing-card based roguelike game.
